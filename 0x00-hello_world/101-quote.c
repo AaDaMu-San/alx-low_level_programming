@@ -6,6 +6,8 @@
  */
 int main(void)
 {
-	std::cerr << "and that piece of art is useful\" - Dora Korpar, 2015-10-19" << std::endl;
-	return (1);
+	char s[20];
+	void perror(const char *s);
+
+	return (0);
 }
