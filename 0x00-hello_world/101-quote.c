@@ -6,8 +6,7 @@
  */
 int main(void)
 {
-	char s[20];
-	void perror(const char *s);
+	perror("and that piece of art is useful\" - Dora Korpar, 2015-10-19");
 
 	return (0);
 }
