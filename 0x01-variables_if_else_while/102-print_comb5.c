@@ -6,31 +6,31 @@
  */
 int main(void)
 {
-	int n, i, N, I;
+	int t, o, T, O;
 
 
-	for (n = '0'; n <= '9'; n++)
+	for (t = '0'; t <= '9'; t++)
 	{
-		for (i = '0'; i <= '9'; i++)
+		for (o = '0'; o <= '9'; o++)
 		{
-			for (N = n; N <= '9'; N++)
+			for (T = t; T <= '9'; T++)
 			{
-				for (I = (i + 1); I <= '9'; I++)
+				for (O = (o + 1); O <= '9'; O++)
 				{
-					putchar(n);
-					putchar(i);
+					putchar(t);
+					putchar(o);
 					putchar(' ');
-					putchar(N);
-					putchar(I);
+					putchar(T);
+					putchar(O);
 
-					if (!((n == '9' && i == '8') &&
-						(N == '9' && I == '9')))
+					if (!((t == '9' && o == '8') &&
+						(T == '9' && O == '9')))
 					{
 						putchar(',');
 						putchar(' ');
 					}
 				}
-				I = '0';
+				O = '0';
 			}
 		}
 	}
