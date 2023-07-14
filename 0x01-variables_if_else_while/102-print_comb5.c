@@ -1,41 +1,32 @@
 #include <stdio.h>
-/**
- * main - main block
- *
- * Return: 0
- */
-int main(void)
-{
-	int i, j;
-	int a, b, c, d;
 
-	for (i = 0; i < 100; i++)
-	{
-		a = i / 10; /* doubles fnum */
-		b = i % 10; /* singles fnum */
+int main() {
+    int i, j;
 
-		for (j = 0; j < 100; j++)
-		{
-			c = j / 10; /* doubles snum */
-			d = j % 10; /* singles snum */
+    for (i = 0; i <= 99; i++) {
+        for (j = i; j <= 99; j++) {
+            // Print first number's tens digit
+            putchar('0' + (i / 10));
 
-			if (a < c || (a == c && b < d))
-			{
-				putchar(a + '0');
-				putchar(b + '0');
-				putchar(32);
-				putchar(c + '0');
-				putchar(d + '0');
+            // Print first number's ones digit
+            putchar('0' + (i % 10));
 
-				if (!(a == 9 && b == 8))
-				{
-					putchar(44);
-					putchar(32);
-				}
-			}
-		}
-	}
-	putchar(10);
+            // Print space separator
+            putchar(' ');
 
-	return (0);
+            // Print second number's tens digit
+            putchar('0' + (j / 10));
+
+            // Print second number's ones digit
+            putchar('0' + (j % 10));
+
+            // Print comma and space separator
+            if (i != 99 || j != 99) {
+                putchar(',');
+                putchar(' ');
+            }
+        }
+    }
+
+    return 0;
 }
