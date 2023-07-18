@@ -6,7 +6,11 @@
  */
 int main(void)
 {
-	printf("\_putchar");
+	char str[10] = "\_putchar";
 
+	for (int i = 0; i <= 10; i++)
+	{
+		putchar(str[i]);
+	}
 	return (0);
 }
