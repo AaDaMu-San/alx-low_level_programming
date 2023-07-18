@@ -1,7 +1,7 @@
 #include "main.h"
 /**
  * _islower - Entry
- * @c character to test
+ * @c: character to test.
  *
  * Return: 1 (true) else 0 (false)
  */
