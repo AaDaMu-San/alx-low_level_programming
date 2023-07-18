@@ -1,7 +1,9 @@
 #include "main.h"
 /**
- * main - Entry
+ * _islower - Entry
+ * @c character to test
  *
+ * Return: 1 (true) else 0 (false)
  */
 int _islower(int c)
 {
