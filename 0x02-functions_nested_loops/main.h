@@ -1,10 +1,6 @@
-#include <stdio.h>
-void print_alphabet(void)
-{
-	int i;
+#ifndef _MAIN.H_
+#define _MAIN.H_
 
-	for (i = 'a'; i <= 'z'; i++)
-	{
-		putchar(i);
-	}
-}
+
+
+void print_alphabet(void);
