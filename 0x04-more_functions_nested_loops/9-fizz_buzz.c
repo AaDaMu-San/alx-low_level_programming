@@ -25,6 +25,11 @@ int main(void)
 			printf("Buzz");
 			putchar(' ');
 		}
+		else
+		{
+			printf("%d", i);
+			putchar(' ');
+		}
 	}
 	return (0);
 }
