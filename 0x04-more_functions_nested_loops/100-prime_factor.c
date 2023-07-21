@@ -7,7 +7,9 @@
  */
 int main(void)
 {
-	long int n, m, i;
+	long int n;
+	long int m;
+	long int i;
 
 	n = 612852475143;
 	m = -1;
