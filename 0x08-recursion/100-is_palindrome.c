@@ -6,7 +6,7 @@ int _strlenr(char *s);
 /**
  * is_palindrome - function that returns 1 if a
  * string is a palindrome and 0 if not.
- * @s:
+ * @s: input
  * Return: 1 if true, 0 if not.
  */
 int is_palindrome(char *s)
