@@ -4,15 +4,11 @@
  * main - entry point.
  * @argc: argc
  * @argv: argv
- * Return: 1 success.
+ *
+ * Return: Always 1 success.
  */
-int main(int argc, char* argv[])
+int main(int argc __attribute__((unused)), char* argv[])
 {
-	int i;
-
-	for(i = 0; i < argc; i++)
-	{
-		printf("%s\n", argv[i]);
-	}
+	printf("%s\n", *argv);
 	return (0);
 }
