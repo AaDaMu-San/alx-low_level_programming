@@ -1,7 +1,11 @@
 #include "main.h"
 #include <stdlib.h>
 
-
+/**
+ * wrd_cnt - helper func.
+ * @s: str to count from.
+ * Return: num of words.
+ */
 int wrd_cnt(char *s)
 {
 	int f = 0, c, w = 0;
