@@ -39,7 +39,6 @@ char **strtow(char *str)
 		return (NULL);
 
 	mat = (char **) malloc(sizeof(char *) * (word + 1));
-
 	if (mat == NULL)
 		return (NULL);
 
@@ -64,8 +63,6 @@ char **strtow(char *str)
 		else if (c++ == 0)
 			strt = i;
 	}
-
 	mat[j] = NULL;
-
 	return (mat);
 }
