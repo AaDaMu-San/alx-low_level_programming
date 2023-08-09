@@ -3,8 +3,8 @@
 /**
  * *argstostr - function that concatenates all the
  * arguments of your program.
- * @ac:
- * @av:
+ * @ac: num of strs.
+ * @av: strs to be joined.
  * Return: pointer to a new string (Success), NULL (fail).
  */
 char *argstostr(int ac, char **av)
