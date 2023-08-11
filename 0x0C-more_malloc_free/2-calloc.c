@@ -6,6 +6,7 @@
  * @size: size of nmemb.
  * Return: void.
  */
+
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
 	char *out;
@@ -13,10 +14,15 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 
 	if (nmemb == 0 || size == 0)
 		return (NULL);
+
 	out = malloc(nmemb * size);
+
 	if (out == NULL)
+	{
 		return (NULL);
+	}
 	for (i = 0; i < (nmemb * size); i++)
-		 out[i] = 0;
+		out[i] = 0;
+
 	return (out);
 }
