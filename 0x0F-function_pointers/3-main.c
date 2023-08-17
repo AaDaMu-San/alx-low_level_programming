@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#define ARGV(X, S) (argv[X][0] == S)
 
 /**
  * main - This func performs a calc on 2 numbers using
@@ -13,12 +12,12 @@
  */
 int main(int argc, char *argv[])
 {
-	int n1, n2, out;
+	int n1, n2;
 	char *op;
 
 	if (argc != 4)
 	{
-		printf("E rror\n");
+		printf("Error\n");
 		exit(98);
 	}
 
@@ -26,19 +25,20 @@ int main(int argc, char *argv[])
 	n2 = atoi(argv[3]);
 	op = argv[2];
 
-	if ((ARGV(2, '/') || ARGV(2, '%')) && n2 == 0)
+	if ((*op == '/' && n2 == 0) ||
+		(*op == '%' && n2 ==0))
 	{
-		printf("Err or\n");
+		printf("Error\n");
 		exit(100);
 	}
 
-	if (!(get_op_func(op)))
+	if (get_op_func(op) == NULL || op[1] != '\0')
 	{
+		printf("Error\n");
 		exit(99);
 	}
 
-	out = get_op_func(op)(n1, n2);
-	printf("%d\n", out);
+	printf("%d\n", get_op_func(op)(n1, n2));
 
 	return (0);
 }
