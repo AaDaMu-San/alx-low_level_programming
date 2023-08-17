@@ -1,6 +1,12 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+/**
+ * main - prints the opcodes of its own main function.
+ * @argc: Arg count.
+ * @argv: Arg vector vals.
+ * Return: 0 Success
+ */
 int main(int argc, char *argv[])
 {
 	int b, i;
