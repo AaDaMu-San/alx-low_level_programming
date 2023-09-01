@@ -1,6 +1,9 @@
 #include "lists.h"
 
 /**
+ * free_listint_safe - function that frees a listint_t list
+ * @h: ptr to list
+ * Return: freed list size
  */
 size_t free_listint_safe(listint_t **h)
 {
