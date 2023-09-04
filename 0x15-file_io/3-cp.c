@@ -1,6 +1,34 @@
 #include "main.h"
 
 /**
+ * _exits - prints error message
+ * @error: exit val or descriptor.
+ * @s: file name.
+ * @fd: file descriptor.
+ * Return: 0 success.
+ */
+int _exits(int error, char *s, int fd)
+{
+	switch (error)
+	{
+	case 97:
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+		exit(error);
+	case 98:
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", s);
+		exit(error);
+	case 99:
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", s);
+		exit(error);
+	case 100:
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
+		exit(error);
+	default:
+		return (0);
+	}
+}
+
+/**
  * main - copies the content of a file to another file.
  * @argc: argument count.
  * @argv: arguments.
@@ -8,41 +36,32 @@
  */
 int main(int argc, char **argv)
 {
-	int close, close2, rc, wc, fd, fd2;
-	char tmp[BUFSIZ];
+	int fd, fd2, r, w;
+	char *tmp[1024];
 
 	if (argc != 3)
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n"), exit(97);
+		_exits(97, NULL, 0);
+
+	fd2 = open(argv[2], O_CREAT | O_TRUNC | O_WRONLY, 0664);
+	if (fd2 == -1)
+		_exits(99, argv[2], 0);
+
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
+		_exits(98, argv[1], 0);
+
+	while ((r = read(fd, tmp, 1024)) != 0)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file NAME_OF_THE_FILE\n",
-				argv[1]);
-		exit(98);
+		if (r == -1)
+			_exits(98, argv[1], 0);
+
+		w = write(fd2, tmp, r);
+		if (w == -1)
+			_exits(99, argv[2], 0);
 	}
-	fd2 = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
-	if (fd2 == -1)
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]), exit(99);
-	while ((rc == read(fd, tmp, BUFSIZ)) > 0)
-	{
-		wc = (write(fd2, tmp, rc));
-		if (wc != rc)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-			exit(99);
-		}
-	}
-	if (rc == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-		exit(98);
-	}
-	close = close(fd);
-	if (close == -1)
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd), exit(100);
-	close2 = close(fd2);
-	if (close2 == -1)
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd2), exit(100);
+
+	close(fd) == -1 ? (_exits(100, NULL, fd)) : close(fd);
+	close(fd2) == -1 ? (_exits(100, NULL, fd2)) : close(fd2);
 
 	return (0);
 }
